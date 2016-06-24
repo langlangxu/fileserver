@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="item in items" :style="{color:item.color}">0000{{item.text}}</li>
+		</ul>
+	</div>
+	<script>
+		_vue = new Vue({
+			el:"#app",
+			data:{
+				items:[
+					{
+						text:123,
+						color:'red',
+					},{
+						text:321,
+						color:'blue'
+					}
+				]
+			}
+		})
+		
+	</script>
+</body>
+</html>
