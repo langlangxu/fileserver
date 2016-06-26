@@ -212,9 +212,13 @@ function getFileType(path,val,callback){
 
 
 function listTemplate(type,val){
+	var className = 'list-file'+ (type==0 && ' folder' || '');
+	if(type==0 && /^\./.test(val)){
+		className+= ' system-folder';
+	}
 	return {
 		type:type,
-		html:'<div class="list-div"><a class="list-file'+ (type==0 && ' folder' || '') +'" href="' + val + (type==0 && '/' || '') + '"' + (type==1 && ' target="_blank"' || '') +'>' + val + '</a></div>'
+		html:'<li class="'+ className +'" ><a href="' + val + (type==0 && '/' || '') + '"' + (type==1 && ' target="_blank"' || '') +'>' + val + '</a></li>'
 	}
 }
 
