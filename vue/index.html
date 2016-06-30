@@ -5,26 +5,31 @@
 	<script src="vue.min.js"></script>
 </head>
 <body>
+	<div id="demo"></div>
+
 	<div id="app">
 		<ul>
-			<li v-for="item in items" :style="{color:item.color}">0000{{item.text}}</li>
+			<!-- <li v-for="item in items" :style="{color:item.color}">0000{{item.text}}</li> -->
 		</ul>
+		<img src="/" alt="" id="myImage">
 	</div>
+	<<script src=""></script>
 	<script>
-		_vue = new Vue({
-			el:"#app",
-			data:{
-				items:[
-					{
-						text:123,
-						color:'red',
-					},{
-						text:321,
-						color:'blue'
-					}
-				]
+		var val = 'abcdefgabaacccb';
+		var search = 'adz';
+
+		search = search.toString(),
+		val = val.toString();
+
+
+		var s = search.split('').map(function(a,b){
+			console.log(a)
+			if(val.search(a) > -1){
+				console.log(val.replace(new RegExp(a,'g'),'--'))
+				return '--' + a +'--'
 			}
 		})
+		console.log(s)
 		
 	</script>
 </body>

@@ -1,4 +1,4 @@
-const PORT = 8888;
+const PORT = 8886;
 const http = require('http'),
 	fs   = require('fs'),//文件模块
 	url  = require('url'),

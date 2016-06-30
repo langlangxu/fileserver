@@ -38,7 +38,9 @@ var Comment = React.createClass({
         <h2 className="commentAuthor">
           {this.props.author}
         </h2>
-        <Signature>{this.props.signature}</Signature>
+        {
+          //<Signature>{this.props.signature}</Signature>
+        }
         <span dangerouslySetInnerHTML={this.rawMarkup()} style={this.setStyle()}/>
       </div>
     );
@@ -89,14 +91,10 @@ var CommentBox = React.createClass({
   },
   render: function() {
     console.log(this.state.data)
-    var test = this.state.data.map(function(item){
-          return <span>tttt:{item.id}----</span>
-        })
     return (
       <div className="commentBox">
         <h1>Comments</h1>
         <CommentList data={this.state.data} that={this} />
-        {test}
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );

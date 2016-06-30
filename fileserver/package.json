@@ -1,0 +1,11 @@
+{
+    "name": "langlangxu",      
+    "version": "1.0.0",          
+    "dependencies": {            
+        "argv": "0.0.2"
+      },
+    "main": "./lib/echo.js",      
+    "bin" : {
+        "node-echo": "./bin/node-echo"    
+    }
+}
