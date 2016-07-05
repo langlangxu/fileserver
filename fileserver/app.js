@@ -7,14 +7,12 @@ const http = require('http'),
 // var [http,fs,url,path,mime] =  ['http','fs','url','path','./mime'].map((x) => require(x))
 // 
 const rootPath = __dirname.replace(/\\\w*?$/,'')
-console.log(rootPath)
-
+// console.log(rootPath)
 http.createServer(tellme)
 .listen(PORT);
 
 console.log('Server start')
 console.log('Server runing: '+ getIPAdress() + ':' + PORT);
-
 
 
 //请求进来时候执行的代码
@@ -196,10 +194,10 @@ function getFileType(path,val,callback){
 		if(!err){
 			if(file.isDirectory()){
 				type = 0
-				console.log('文件夹')
+				// console.log('文件夹')
 			}else if(file.isFile()){
 				type = 1
-				console.log('文件');
+				// console.log('文件');
 			}else{
 				type = 2
 				console.log('路径存在')
