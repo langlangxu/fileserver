@@ -1,0 +1,226 @@
+<!-- <svg width="400" height="400">
+    <path id="path1"/>
+</svg> -->
+<script type="text/javascript" src="vue.min.js"></script>
+<svg id="svg" width="200" height="200">
+<path v-for="i in angles" :d="angles[$index-1] || 0 |toPath (i-gap) size r" :style="{'stroke':color[$index],'strokeWidth':width+'px'}"></path>
+</svg>
+
+<ul>
+  <li v-for="i in angles">{{i}}</li>
+</ul>
+<style type="text/css">
+  path{
+    stroke-width:20px;
+    fill:rgba(0,0,0,0);
+    stroke:#69f;
+    transition: .3s;
+  }
+  path:hover{
+    stroke-width:30px;
+    opacity:0.7;
+  }
+</style>
+<script type="text/javascript">
+(function(){
+
+
+//角度转换成path
+  Vue.filter('toPath',function(start,end,size,r){
+    console.log(start,end);
+    if (start == end + 5) return ''
+    var arc = 2*Math.PI/360;
+    var b = 0;//顺时针或逆时针
+    var x=size/2,//圆心
+        y=size/2;
+
+    X1= x+Math.sin(start*arc) * r;
+    Y1= y-Math.cos(start*arc) * r;
+
+    X2 = x+Math.sin(end*arc) * r;
+    Y2 = y-Math.cos(end*arc) * r;
+
+    if(end-start>180){
+      b=1
+    }
+
+    // var path = '<path style="stroke:'+color+';" d="M' + X1 + ',' + Y1 + ' A' + r + ',' + r +' 0 ' + b + ',1 ' + X2 + ',' + Y2+'"></path>'
+    var path = 'M' + X1 + ',' + Y1 + ' A' + r + ',' + r +' 0 ' + b + ',1 ' + X2 + ',' + Y2
+
+    return path;
+  })
+
+   _vue =  new Vue({
+      el:'body',
+      data:{
+        arr:[1000,100,1070,0,0,6340],
+        color: ['#f44','#69f','#88f','#9f9','orange','#8ff'],
+        gap:5,
+        size:200,
+        r:30,
+        width:20,
+      },
+      computed:{
+        angles:function(){
+          //配置信息 
+          var arr = this.arr
+          var color = this.color
+          var gap = this.gap;//间距
+          var size = this.size;//画布大小
+          var r=this.r;//半径
+
+
+          var num = 0;
+          var arrAngle=[]
+          var arrRate = []
+          var newArr = []
+          for(var i in this.arr){
+            if(this.arr[i] > 0){
+              newArr.push(this.arr[i])
+              num+=this.arr[i]
+            }
+          }
+          // console.log(arrRate);
+          for(var i in arr){
+            arrRate.push(arr[i]/num * (360 - gap*newArr.length))
+          }
+          console.log(arrRate);
+          for(var i in arrRate){
+            if(arr[i] >0){
+              arrAngle.push((arrAngle[i-1]||0)+arrRate[i]+gap)
+            }
+            else{
+              arrAngle.push(arrAngle[i-1])
+            }
+          }
+          console.log(arrAngle);
+          return arrAngle;
+        }
+      }
+   })
+
+
+
+  // //配置信息 
+  // var arr = [1000,299,1070,999,1970,6340]
+  // var color = ['#f44','#69f','#88f','#9f9','orange','8ff']
+  // var gap = 5;//间距
+  // var size = 200;//画布大小
+  // var r=30;//半径
+
+
+
+  // var num = 0;
+  // var arrAngle=[]
+  // var arrRate = []
+  // for(var i in arr){
+  //   num+=arr[i]
+  // }
+  // // console.log(arrRate);
+  // for(var i in arr){
+  //   arrRate.push(arr[i]/num * (360 - gap*arr.length))
+  // }
+  // console.log(arrRate);
+  // for(var i in arrRate){
+  //   arrAngle.push((arrAngle[i-1]||0)+arrRate[i]+gap)
+  // }
+
+  // // console.log(arrAngle);
+
+  // for(var i in arrAngle){
+  //   // document.getElementById('svg').innerHTML += (createPath((arrAngle[i-1]||0),arrAngle[i]-gap,color[i]))
+  //   document.getElementById('svg').appendChild(createPath((arrAngle[i-1]||0),arrAngle[i]-gap,color[i]))
+  // }
+
+  // function createPath(start,end,color){
+  //   var arc = 2*Math.PI/360;
+  //   var b = 0;//顺时针或逆时针
+  //   var x=size/2,//圆心
+  //       y=size/2;
+
+  //   X1= x+Math.sin(start*arc) * r;
+  //   Y1= y-Math.cos(start*arc) * r;
+
+  //   X2 = x+Math.sin(end*arc) * r;
+  //   Y2 = y-Math.cos(end*arc) * r;
+
+  //   if(end-start>180){
+  //     b=1
+  //   }
+
+  //   // var path = '<path style="stroke:'+color+';" d="M' + X1 + ',' + Y1 + ' A' + r + ',' + r +' 0 ' + b + ',1 ' + X2 + ',' + Y2+'"></path>'
+  //   var path = 'M' + X1 + ',' + Y1 + ' A' + r + ',' + r +' 0 ' + b + ',1 ' + X2 + ',' + Y2
+
+
+  //   // path = 'M200,100A100,100 0 0,1 291.3545457642601,240.67366430758003'
+  //   var pathEle = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+  //   pathEle.setAttribute('d',path);
+  //   pathEle.style.stroke=color;
+  //   // document.getElementById('path2').setAttribute('d',path);
+  //   return pathEle;
+  // }
+})()
+</script>
+
+
+
+<!-- 
+
+  //配置信息 
+  var arr = [1000,299,1070,999,1970,6340]
+  var color = ['#f44','#69f','#88f','#9f9','orange','8ff']
+  var gap = 5;//间距
+  var size = 200;//画布大小
+  var r=30;//半径
+
+
+
+  var num = 0;
+  var arrAngle=[]
+  var arrRate = []
+  for(var i in arr){
+    num+=arr[i]
+  }
+  // console.log(arrRate);
+  for(var i in arr){
+    arrRate.push(arr[i]/num * (360 - gap*arr.length))
+  }
+  console.log(arrRate);
+  for(var i in arrRate){
+    arrAngle.push((arrAngle[i-1]||0)+arrRate[i]+gap)
+  }
+
+  // console.log(arrAngle);
+
+  for(var i in arrAngle){
+    // document.getElementById('svg').innerHTML += (createPath((arrAngle[i-1]||0),arrAngle[i]-gap,color[i]))
+    document.getElementById('svg').appendChild(createPath((arrAngle[i-1]||0),arrAngle[i]-gap,color[i]))
+  }
+
+  function createPath(start,end,color){
+    var arc = 2*Math.PI/360;
+    var b = 0;//顺时针或逆时针
+    var x=size/2,//圆心
+        y=size/2;
+
+    X1= x+Math.sin(start*arc) * r;
+    Y1= y-Math.cos(start*arc) * r;
+
+    X2 = x+Math.sin(end*arc) * r;
+    Y2 = y-Math.cos(end*arc) * r;
+
+    if(end-start>180){
+      b=1
+    }
+
+    // var path = '<path style="stroke:'+color+';" d="M' + X1 + ',' + Y1 + ' A' + r + ',' + r +' 0 ' + b + ',1 ' + X2 + ',' + Y2+'"></path>'
+    var path = 'M' + X1 + ',' + Y1 + ' A' + r + ',' + r +' 0 ' + b + ',1 ' + X2 + ',' + Y2
+
+
+    // path = 'M200,100A100,100 0 0,1 291.3545457642601,240.67366430758003'
+    var pathEle = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    pathEle.setAttribute('d',path);
+    pathEle.style.stroke=color;
+    // document.getElementById('path2').setAttribute('d',path);
+    return pathEle;
+  } -->

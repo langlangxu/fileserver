@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- <link rel="stylesheet" type="text/css" href="../css/pure-min.css"> -->
+	<script type="text/javascript" src="../js/vue.min.js"></script>	
+	<script type="text/javascript" src="../js/zepto.min.js"></script>
+	<script type="text/javascript" src="../js/page/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+		<!--  -->
+	<link rel="stylesheet" type="text/css" href="../css/consultant.css">
+	<script type="text/javascript" src="../js/page/consultant.js"></script>
+</head>
+<body>
+<div id="page">
+	<section id="header">
+		<!-- <div id="banner">
+			<ul>
+				<li>
+					<img src="http://usr.im/350x150?bg=3498DB&text=广告1">
+				</li>
+				<li>
+					<img src="http://usr.im/350x150?bg=3498DB&text=广告2">
+				</li>
+				<li>
+					<img src="http://usr.im/350x150?bg=3498DB&text=广告3">
+				</li>
+			</ul>
+		</div> -->
+	</section>
+	<section id="main">
+		<ul id="change-tab">
+			<li><a data-id="consultant">投顾</a><i class="line"></i></li>
+			<li><a data-id="individual">我</a></li>
+		</ul>
+		<div id="consultant" class="">
+			<!-- 分类标题 -->
+			<ul class="classify" id="classify">
+			<!-- 循环体 -->
+				<li v-for="todo in todos" v-bind:class="{ 'active': state == $index}"><a href="##" v-on:click = "changeTab($index)">{{ todo.text }}</a></li>
+			<!-- 循环体 -->
+			</ul>
+			
+			<!-- 分类元素 -->
+			<ul id="con-list" class="list">
+			<!-- 循环体 -->
+				<li v-for="item in items" data-href="personal_page.html?{{item.id}}">
+					<img class="head-pic" :src="item.yxxx" onerror="this.src='/images/default-head.gif';this.onerror=null">
+					<div class="list-text">
+						<div class="list-text-t">
+							<span class="con-name">{{ item.ryxm }}</span>
+							<span class="con-side">{{ item.orgName }}</span>
+						</div>
+						<div class="list-text-b">
+							<button :class="{'select': no}" @click="addAttent($index)">+关注</button>
+							<!-- <button>交流</button> -->
+							<span class="rate-text">累计收益率：</span>
+							<span class="rate">{{item.ljsyl}}%</span>
+						</div>
+					</div>
+				</li>
+				<div class="loading"><span>{{state}}</span></div>
+			<!-- 循环体 -->
+			</ul>
+		</div>
+		<div id="individual">
+			<div class="ind-head">
+				<div class="ind-pic"><img src="../images/touxiang.png"></div>
+				<span>18768167777</span>
+			</div>
+			<div class="ind-main">
+				<ul>
+					<li><a href="" title="" class="shoucang">我关注的投顾</a></li>
+					<li><a href="" title="" class="jiaoliu">我的实时交流</a></li>
+				</ul>
+			</div>
+		</div>
+
+		
+	</section>
+
+	
+</div>
+<!-- <span id="alert">"查询出错10001"</span> -->
+</body>
+</html>

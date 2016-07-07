@@ -1,0 +1,13 @@
+var http = require("http")
+var url = "http://www.imooc.com/video/7965"
+http.get(url,function(res){
+	var html = ''
+	var num = 0;
+	res.on('data',function(data){
+		html += data;
+		num ++
+	}).on('end',function(){
+		console.log(html);
+		console.log(num);
+	})
+})

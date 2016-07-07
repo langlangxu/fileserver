@@ -1,0 +1,48 @@
+<meta name="name" content="content" charset="utf-8">
+<title>汉字和Unicode编码互转</title>
+
+<script Language=Javascript>
+
+var classObj=
+
+     {
+
+       ToUnicode:function(str) 
+
+       {
+
+        return escape(str).replace(/%/g,"\\").toLowerCase();
+
+       },
+
+       UnUnicode:function(str)
+
+       {
+
+        return unescape(str.replace(/\\/g, "%"));
+
+       },
+
+      copyingTxt:function(str)
+
+      {
+
+       document.getElementById(str).select(); 
+
+       document.execCommand("Copy"); 
+
+      }
+
+    }
+
+</script>
+
+<textarea id=codes style="width:500px;height:300px"></textarea><br><br>
+
+<input type=button value=Unicode加密 onclick=javascript:codes.value=classObj.ToUnicode(codes.value)>
+
+<input type=button value=Unicode解密 onclick=javascript:codes.value=classObj.UnUnicode(codes.value)>
+
+<input type=button value=复制文本 onclick=javascript:classObj.copyingTxt("codes")>
+
+<input type=button value=清空内容 onclick=javascript:codes.value="">

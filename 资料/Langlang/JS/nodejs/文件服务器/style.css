@@ -1,0 +1,35 @@
+body{
+	padding:50px;
+}
+.list-div{
+	margin-left:10px;
+}
+.list-file{
+	display: inline-block;
+	text-decoration: none;
+	color:#333;
+	margin-top:10px;
+	padding-left:30px;
+}
+.list-file.folder{
+	display: inline-block;
+	position: relative;
+}
+.list-file.folder:after,.list-file.folder:before{
+	content: "";
+
+	background: #ffc107;
+	position: absolute;
+}
+.list-file.folder:after{
+	left:0;
+	top:3px;
+	width:20px;
+	height:15px;
+}
+.list-file.folder:before{
+	width:8px;
+	height:3px;
+	left:0;
+	top:1px;
+}

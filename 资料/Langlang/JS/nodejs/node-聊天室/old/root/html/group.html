@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- <link rel="stylesheet" type="text/css" href="../css/pure-min.css"> -->
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<script type="text/javascript" src="../js/zepto.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<script type="text/javascript" src="../js/page/common.js"></script>
+	<!--  -->
+	<link rel="stylesheet" type="text/css" href="../css/group.css">
+	<script type="text/javascript" src="../js/page/group.js"></script>
+</head>
+<body>
+<div id="page">
+	<section id="header">
+		<div id="banner">
+			<ul>
+				<li v-for="item in 3">
+					<img src="http://usr.im/70x30?bg=3498DB&text=广告{{item}}" alt="banner">
+				</li>
+			</ul>
+		</div>
+		
+	</section>
+	<section id="main">
+
+
+		<!-- 分类标题 -->
+		<ul class="classify" id="classify" >
+		<!-- 循环体 -->
+			<li v-for="todo in todos" class="{{ todo.state }}"><a href="##" v-on:click = "changeTab($index)">{{ todo.text }}</a></li>
+		<!-- 循环体 -->
+		</ul>
+		
+		<!-- 分类元素 -->
+		<ul id="con-list" class="list">
+		<!-- 循环体 -->
+			<li class=""  v-for="item in items">
+				<div class="list-left">
+					<span class="rate">5.55%</span>
+					<span>累计收益</span>
+				</div>
+				<div class="list-text bg-color">
+					<div class="list-text-t">
+						<a href="group_particular.html"><span class="con-name">{{ item.name }}</span></a>
+						<div class="align-right">
+							<span>88人关注</span>
+							<span>1111人购买</span>
+						</div>
+					</div>
+					<div class="list-text-b">
+						<span class="trade-mark">化工化工</span>
+						<span class="trade-mark">高配送</span>
+						<div class="align-right">
+							<span><a>李广</a></span>
+							<span>2015-5-21创建</span>
+						</div>
+					</div>
+				</div>
+			</li>
+		<!-- 循环体 -->
+		</ul>
+	</section>
+<!-- 
+	<section id="footer">
+		<ul>
+			<li>
+				<a href="consultant.html"><span class="icon-con">投顾</span></a>
+			</li>
+			<li>
+				<a href="group.html"><span class="icon-group active">组合</span></a>
+			</li>
+			<li>
+				<a href=""><span class="icon-news">咨询</span></a>
+			</li>
+			<li>
+				<a href=""><span class="icon-me">我</span></a>
+			</li>
+		</ul>
+	</section> -->
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+#header{
+	background:#669;
+	padding:.1rem;
+	color:#fff;
+}
+#header ul{
+	display: -webkit-box;
+	display:box;
+}
+#header li{
+	-webkit-box-flex:1;
+	box-flex:1;
+	text-align: center;
+	border-right:.01rem solid #fff;
+}
+#header li:last-child{
+	border:none;
+}
+#header span,#header h6{
+	font-size:.12rem;
+}
+#header .trade-mark{
+	line-height: .2rem;
+	margin-right:.1rem;
+}
+.full-name{
+	margin-right:.2rem;
+}
+.row1,.row2{
+	margin-bottom:.15rem;
+}
+
+
+
+#main{
+	padding:.2rem .1rem;
+}
+.history-btn{
+	background:#669;
+	color:#fff;
+	width:100%;
+	line-height:.2rem;
+	font-size: .12rem;
+}
+.on-sell ul li ul li{
+	display: inline-block;
+	text-align: center;
+	width:25%;
+	white-space: nowrap;
+}
+.on-sell-head{
+	background:#ccc;
+}
+.on-sell span{
+	line-height:.3rem;
+}

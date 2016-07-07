@@ -1,0 +1,37 @@
+<meta charset="utf-8">
+<script>
+	var log = function(out){console.log(out)}
+	var timer = function(){
+		var start;
+		this.begin = function(){
+			start = Date.now();
+		};
+		this.end = function(){
+			log('执行时间' + (Date.now() - start) + '毫秒');
+		}
+	};
+	var time = new timer();
+	var arr = [];
+	for(var i=1000000;i--;){
+		arr.push(i);
+	}
+	var Tem = [
+		"for(var i=arr.length;i--;){}",
+		"for(var i in arr){}",
+		"for (var i=0;i<arr.length;i++){}",
+		"for (var i=0,len=arr.length;i<len;i++){}",
+
+	];
+
+	for(var index=0;index<Tem.length;index++){
+		time.begin();
+		eval(Tem[index])
+		log(Tem[index]);
+		time.end();
+	}
+	
+
+
+
+	
+</script>

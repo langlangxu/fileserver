@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<!-- <link rel="stylesheet" type="text/css" href="../css/pure-min.css"> -->
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<script type="text/javascript" src="../js/zepto.min.js"></script>
+	<script type="text/javascript" src="../js/page/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+<!--  -->
+	<link rel="stylesheet" type="text/css" href="../css/personal_page.css">
+	<script type="text/javascript" src="../js/page/personal_page.js"></script>
+</head>
+<body>
+<div id="page">
+	<section id="header">
+		<div id="top1">
+			<a id="history"></a>
+			<span>{{ryxm}}</span>
+		</div>
+		<div class="basic-info">
+			<img :src="yxxx"class="head-por" onerror="this.src='../images/default-head.gif'">
+			<div class="basic-text">
+				<div class="basic-top">
+					<span>{{ryxm}}</span>
+					<span class="con-side">{{orgName}}</span>
+				</div>
+				<div class="basic-bottom">
+					<ul>
+						<li>
+							<span>{{bgzs}}</span>
+							<h6>粉丝</h6>
+						</li>
+						<li style="width:.7rem;">
+							<span>35</span>
+							<h6>组合</h6>
+						</li>
+						<li>
+							<span>{{ljsyl}}%</span>
+							<h6>年收益</h6>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<button id="gztg">+关注</button>
+			<!-- <button class="fr">交流</button> -->
+		</div>
+	</section>
+	<section id="main">
+		<h3 class="intr-title">个人特点</h3>
+		<p class="intr-content">{{grtd}}</p>
+		<h3 class="intr-title">模拟盘业绩</h3>
+		<p class="intr-content">{{gryj}}</p>
+
+		<!--  -->
+		<h3 class="intr-title">个人模拟帐户</h3>
+		<div class="imit-accout bg-color">
+			<ul class="imit-head">
+				<li>
+					<h6>总资产</h6>
+					<span>{{zzc}}元</span>
+				</li>
+				<li>
+					<h6>起始日期</h6>
+					<span>{{qsrq}}</span>
+				</li>
+				<li>
+					<h6>初始资金</h6>
+					<span>{{qszj}}元</span>
+				</li>
+				<li>
+					<h6>收益率</h6>
+					<span>{{ljsyl}}%</span>
+				</li>
+			</ul>
+			<p class="imit-accout-text"><span><i class="icon icon1"></i>组合</span><span><i class="icon icon2"></i>沪深300</span></p>
+
+
+			<div class="income-chart">
+				
+				<div class="chart-left">
+					<!-- <svg id="income-rate-svg" width="640" height="400">
+						Your browser does not support the HTML5 svg tag.
+					</svg> -->
+					<ul id="mark-num">
+						<li><span>85%</span></li>
+						<li><span>85.11%</span></li>
+						<li><span>85%</span></li>
+						<li><span>85%</span></li>
+						<li><span>85%</span></li>
+						<li><span>85.09%</span></li>
+					</ul>
+					<canvas id="income-rate" width="500" height="300">
+						Your browser does not support the HTML5 canvas tag.
+					</canvas>
+				</div>
+				
+			</div>
+			
+			<!-- <img src="../images/u57.png" style="width:100%">		 -->
+		</div>
+		<!-- <h3 class="intr-title">在售产品</h3>
+		<div class="on-sell bg-color">
+			<ul>
+				<li class="on-sell-head">
+					<ul>
+						<li><span>组合名称</span></li>
+						<li><span>启动日</span></li>
+						<li><span>停止日</span></li>
+						<li><span>累计收益</span></li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li><span>飞龙1号</span></li>
+						<li><span>2015-5-21</span></li>
+						<li><span>--- ---</span></li>
+						<li><span>+5.29%</span></li>
+					</ul>
+				</li>
+				<li>
+					<ul>
+						<li><span>飞龙2号</span></li>
+						<li><span>2015-6-21</span></li>
+						<li><span>--- ---</span></li>
+						<li><span>+5.29%</span></li>
+					</ul>
+				</li>
+			</ul>
+		</div> -->
+	</section><!-- main end-->
+</div>
+</body>
+</html>

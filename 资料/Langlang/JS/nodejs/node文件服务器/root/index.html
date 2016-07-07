@@ -1,0 +1,64 @@
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>Chat Room</title>
+        <script src="http://192.168.2.100:9999/socket.io/socket.io.js"></script>
+        
+    </head>
+    <body>
+        <h1>Chat Room</h1>
+        <div id="chatbox">
+            <ul id="output1">
+                
+            </ul>
+            <input id="input1" ><label>消息内容</label>
+            <div>
+                <input id="input2"><label>姓名</label>
+            </div>
+        </div>
+    </body>
+</html>
+<style>
+    li span{
+        float:right;
+    }
+    #input1{
+      margin-bottom:20px;
+    }
+</style>
+<script type="text/javascript">
+    //TODO 这里是负责建立热线的代码 
+    // TODO 这里负责接收和传送消息的代码
+    var hotline = io.connect('http://192.168.2.100:9999');
+    var input1 = document.getElementById('input1');
+    var input2 = document.getElementById('input2');
+    var output1 = document.getElementById('output1');
+
+    input1.onchange = function(e){
+
+        var _time = new Date();
+        //发送信息
+        hotline.emit('c1',{
+            text:this.value,
+            name:input2.value || '游客',
+            time:_time.getHours() + ':' + _time.getMinutes() + ':' + _time.getSeconds(),
+        });
+
+        this.value='';
+    }
+
+    //连接成功提示
+    hotline.on('contact',function(data){
+        console.log(data);
+    });
+
+
+    //监听c2事件
+    hotline.on('c2',function(data){
+        var html = '';
+        for(var i in data){
+            html += '<li>'+ data[i].text +'<span><mark>' + data[i].name+ '</mark>发表于' + data[i].time + '</span></li>';
+        }
+        output1.innerHTML = html;
+    })
+</script>

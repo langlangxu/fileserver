@@ -1,0 +1,92 @@
+#banner{
+	white-space: nowrap;
+	overflow: hidden;
+	position:relative;
+}
+#banner ul{
+	transition:1s ease;
+    /*transform: translateX(-3.1rem);*/
+}
+#banner li{
+	display: inline-block;
+	width: 100%;
+}
+#banner img{
+	width:100%;
+	border:.02rem solid ;
+}
+
+#main{
+	padding:.05rem;
+}
+.classify{
+	border:.01rem solid #fff;
+	border-left:0;
+	border-radius:.02rem;
+	margin-bottom:.1rem;
+	display: -webkit-box;
+	display:box;
+}
+.classify li{
+	text-align: center;
+	-webkit-box-flex:1;
+}
+.classify li a{
+	display: inline-block;
+	width:100%;
+	line-height:.3rem;
+	border-left: .01rem solid #fff;
+}
+.list li{
+	background:#69f;
+}
+.list-left{
+	width:.75rem;
+	float:left;
+	color:#fff;
+	text-align: center;
+	padding-top:.15rem;
+}
+.list-left span{
+	display: block;
+	font-size: .12rem;
+}
+.list-left .rate{
+	font-size: .18rem;
+	font-weight: bold;
+
+}
+.list-text{
+	margin-left:.75rem;
+	white-space: nowrap;
+	border-radius: 0;
+}
+.list-text span{
+	font-size: .12rem;
+	line-height:.2rem;
+	color:#999;
+}
+.list-text a{
+	font-size: .12rem;
+}
+.list-text-t{
+	position: relative;
+}
+.list-text .con-name{
+	font-size: .16rem;
+	font-weight: bold;
+	color:#000;
+}
+
+.list-text-b{
+	margin-top:.1rem;
+	position: relative;
+}
+.align-right{
+	position: absolute;
+	right: 0;
+	top:0;
+}
+.list-text-t .align-right span{
+	margin-left:.1rem;
+}

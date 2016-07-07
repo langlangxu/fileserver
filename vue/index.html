@@ -6,6 +6,7 @@
 </head>
 <body>
 	<div id="demo"></div>
+	<input id="input1" type="password" style="width:100px;height:30px;"/>
 
 	<div id="app">
 		<ul>
@@ -13,24 +14,19 @@
 		</ul>
 		<img src="/" alt="" id="myImage">
 	</div>
-	<<script src=""></script>
 	<script>
-		var val = 'abcdefgabaacccb';
-		var search = 'adz';
-
-		search = search.toString(),
-		val = val.toString();
-
-
-		var s = search.split('').map(function(a,b){
-			console.log(a)
-			if(val.search(a) > -1){
-				console.log(val.replace(new RegExp(a,'g'),'--'))
-				return '--' + a +'--'
-			}
-		})
-		console.log(s)
+		var inpt = document.getElementById('input1')
+		inpt.onclick=inpt.onfocus=function(){
+			var _this = this;
+			this.style.fontSize = '0'
+				_this.type = 'number'
+			setTimeout(function(){
+				_this.type = 'password'
+				_this.style.fontSize = ''
+			})
+		}
 		
+		inpt.focus()
 	</script>
 </body>
 </html>

@@ -1,0 +1,210 @@
+/*#header{
+	padding:.05rem;
+}*/
+#banner{
+	white-space: nowrap;
+	overflow: hidden;
+}
+#banner ul{
+	transition:1s ease;
+    /*transform: translateX(-3.1rem);*/
+}
+#banner li{
+	display: inline-block;
+	width: 100%;
+}
+#banner img{
+	width:100%;
+	border:.02rem solid ;
+}
+#change-tab{
+	font-size:0;
+    display: -webkit-box;
+    display: box;
+	padding: 0 .2rem;
+	border-bottom:.01rem solid #ccc;
+}
+#change-tab li{
+    -webkit-box-flex: 1;
+    box-flex: 1;
+	text-align: center;
+	position: relative;
+}
+#change-tab .line{
+	width: 100%;
+	height: .03rem;
+	background: #fb0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+#change-tab.individual .line{
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+}
+#change-tab a{
+	display: inline-block;
+	width: 100%;
+	font-size: .14rem;
+	color:#666;
+	line-height: 3;
+	/*font-weight: bold;*/
+}
+#change-tab.consultant li:first-child a{
+	color:#fb0;
+}
+#change-tab.individual li:last-child a{
+	color:#fb0;
+}
+#consultant {
+	padding: .1rem;
+	background: #fff;
+}
+.classify{
+	background: #e76;
+	border-left:0;
+	border-radius:.05rem;
+	overflow: hidden;
+	display: -webkit-box;
+	display:box;
+}
+.classify li{
+	text-align: center;
+	-webkit-box-flex:1;
+	border-left: .01rem solid #faa;
+}
+.classify li.active{
+	background:#e54;
+}
+.classify li a{
+	color:#fff;
+	display: inline-block;
+	width:100%;
+	line-height:.33rem;
+	font-size: .14rem;
+}
+.classify li:first-child{
+	border:none;
+}
+.list li{
+	padding:.06rem 0 .18rem;
+	border-top:.01rem solid #eee;
+	position: relative;
+}
+.list li:hover{
+	background: #fafafa;
+}
+.list li:first-child{
+	border:none;
+}
+.list .head-pic{
+	width:.7rem;
+	height:.7rem;
+	border-radius:1rem;
+	position: absolute;
+}
+.list-text{
+	margin-left:.75rem;
+	white-space: nowrap;
+}
+.list-text-t{
+	padding:.1rem 0;
+}
+.list-text button{
+	padding: 0;
+	font-size: .1rem;
+	width:.5rem;
+	color:#F89555;
+	background: #EDF0F5;
+	line-height: .24rem;
+	margin-right:.1rem;
+   	vertical-align: initial;
+}
+.list-text button.select{
+	background: #69f;
+	color:#fff;
+}
+.list-text-b span{
+}
+.con-name{
+	color:#333;
+	font-size: .14rem;
+	font-weight: bold;
+	margin-right:.1rem;
+}
+.con-side{
+	font-size:.12rem;
+}
+.list-text-b .rate-text{
+	font-size: .1rem;
+}
+.list-text-b .rate{
+	line-height: .18rem;
+	color:#f44;
+	font-weight: bold;
+}
+
+#consultant,#individual{
+	display: none;
+}
+#consultant.active,#individual.active{
+	display: block;
+}
+
+.ind-head{
+	padding: .15rem;
+	background: #fff;
+	margin-bottom: .1rem;
+}
+.ind-head .ind-pic img{
+	width: 100%;
+	height: auto;
+}
+.ind-head .ind-pic{
+	width: .5rem;
+	height: .5rem;
+	float:left;
+}
+.ind-head span{
+	line-height: .5rem;
+	font-size: .16rem;
+	/*font-weight: bold;*/
+	margin-left: .2rem;
+	color:#666;
+}
+.ind-main a{
+	display: block;
+	width: 100%;
+	padding:.1rem;
+	padding-left: .6rem;
+	font-size: .16rem;
+	border-top:.01rem solid #eee;
+	color:#666;
+	background: #fff no-repeat .1rem center;
+	background-size:.3rem;
+}
+.ind-main a:after{
+	content:'〉';
+	float:right;
+	color:#ccc;
+}
+.ind-main .shoucang{
+	background-image:url(../images/shoucang.png);
+}
+.ind-main .jiaoliu{
+	background-image:url(../images/jiaoliu.png);
+}
+.loading{
+	text-align:center;
+	margin-top:.1rem;
+}
+.loading span{
+	font-size:.12rem;
+	color:#999;
+}
+
+
+/*///*/
+
