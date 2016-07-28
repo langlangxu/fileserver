@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+		<div class="front"></div>
+		<div class="back"></div>
+		<div class="left"></div>
+		<div class="right"></div>
+		<div class="top"></div>
+		<div class="bottom"></div>
+	</div>
+	<style>
+	html,body{
+		width:100%;
+		height:100%;
+		margin:0;
+	}
+		body {
+			perspective:1500px;
+			perspective-origin:275px 275px;
+			background:black;
+		}
+		#box{
+			width:150px;
+			height:150px;
+			position:absolute;
+			left:100px;
+			top:100px;
+			transition:.1s;
+			transform-style:preserve-3d;
+			transform:rotateX(0) rotateY(0) rotateZ(0);
+			transform-origin:50% 50%;
+			border:1px solid #fff;
+		}
+		#box div{
+			position:absolute;
+			width:100%;
+			height:100%;
+			left:0;
+			top:0;
+			transition:.5s;
+			box-shadow:0 0 10px #fff;
+
+		}
+		.front{
+			background:#69f;
+		}
+		.top{
+			transform:rotateX(-90deg);
+			transform-origin:top;
+			background:#f66;
+		}
+		.right{
+			background:#6f9;
+			transform-origin:right;
+			transform:rotateY(-90deg);
+		}
+		.left{
+			background:#f96;
+			transform-origin:left;
+			transform:rotateY(90deg);
+		}
+		.bottom{
+			background:#9f6;
+			transform:rotateX(90deg);
+			transform-origin:bottom;
+		}
+		.back{
+			background:#789;
+			transform:translateZ(-150px);
+		}
+	</style>
+
+	<script>
+
+		var box = {
+			ele:document.getElementById('box'),
+			press:false,
+			prevX:null,
+			prevY:null,
+			x:0,
+			y:0,
+		};
+		document.onmousedown=function(e){
+			// console.log(e)
+			box.press = true;
+			box.prevX = e.screenX;
+			box.prevY = e.screenY;
+
+		}
+		document.onmousemove=function(e){
+			if(!box.press) return ;
+
+			box.x += e.screenX - box.prevX;
+			box.y += e.screenY - box.prevY;
+			box.prevX = e.screenX;
+			box.prevY = e.screenY;
+
+			box.ele.style.transform = 'rotateX('+ -box.y +'deg) rotateY('+ box.x +'deg)';
+
+			// console.log(box.x,box.y)
+
+
+
+		}
+		document.onmouseup=function(e){
+			// console.log(111111)
+			// box.press = false;
+		}
+	</script>
+</body>
+</html>

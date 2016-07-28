@@ -31,3 +31,5 @@ book.propertyType = function(){
 	console.log(newObj.age) // get_age
 	console.log(newObj.__age) // 123
 }
+
+

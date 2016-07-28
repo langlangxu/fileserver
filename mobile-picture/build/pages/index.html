@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>网页标题</title>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="format-detection" content="email=no"/>
+  <meta name="viewport" content="width=device-width,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no">
+  <script src="/src/js/common.js"></script>
+  <link rel="stylesheet" href="/src/css/common.css">
+</head>
+<body>
+<header class="am-fixed">
+	<span class="title">网页标题</span>
+</header>
+<style>
+	header{
+		line-height:.4rem;		
+		background:#333;
+		color:#fff;
+		text-align:center;
+	}
+</style>
+
+
+	
+	<ul class="content">
+		<li class="item">
+			<img src="http://i1.s1.dpfile.com/pc/e31152cef4a71670ec88330dbca99326%28700x700%29/thumb.jpg" alt="">
+			<span class="item-title">图片一张</span>
+		</li>
+	</ul>
+	<style>
+		.content{
+			margin-top:.4rem;
+			padding:.1rem;
+		}
+		.item{
+			text-align:center;
+		}
+	</style>
+
+
+
+	<script>
+		var con = document.querySelector('.content')
+		for(var i=4;i--;)
+		con.innerHTML += con.innerHTML
+
+	</script>
+
+</body>
+</html>

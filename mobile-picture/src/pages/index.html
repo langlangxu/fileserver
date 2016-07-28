@@ -1,0 +1,28 @@
+{% extends '../layout/layout.html' %}
+{% block content %}
+	{# {{title}} #}
+	<ul class="content">
+		<li class="item">
+			<img src="http://i1.s1.dpfile.com/pc/e31152cef4a71670ec88330dbca99326%28700x700%29/thumb.jpg" alt="">
+			<span class="item-title">图片一张</span>
+		</li>
+	</ul>
+	<style>
+		.content{
+			margin-top:.4rem;
+			padding:.1rem;
+		}
+		.item{
+			text-align:center;
+		}
+	</style>
+
+
+
+	<script>
+		var con = document.querySelector('.content')
+		for(var i=4;i--;)
+		con.innerHTML += con.innerHTML
+
+	</script>
+{% endblock %}
